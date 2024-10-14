@@ -61,13 +61,14 @@ router.get('/', async (req, res) => {
 router.get('/jobs', async (req, res) => {
     try {
         // Fetch jobs from an external API (e.g., jsonplaceholder or your own service)
-        const jobResponse = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+        // const jobResponse = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+        const jobResponse = await axios.get('http://localhost:3001/api/jobs');
         const jobs = jobResponse.data; // Extract job data from the response
 
         res.status(200).json({
             message: 'Jobs fetched successfully',
             jobs, // Return the fetched jobs
-        });
+        });ss
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
